@@ -2,8 +2,9 @@ import { debounce } from './utils/debounce.js';
 import { regExps } from './utils/regexps.js';
 import Input from './classes/Input.js';
 import Textarea from './classes/Textarea.js';
-import {setUtm} from './modules/setUtm.js';
-import {getStringHtml} from './modules/getStringHtml.js';
+import getStringHtml from './modules/getStringHtml.js';
+import postProcessHtmlString from './modules/postProcessHtmlString.js';
+import setUtm from './modules/setUtm.js';
 
 const inputAreaNode = document.querySelector('.input-area .textarea__field');
 const outputAreaNode = document.querySelector('.output-area .textarea__field');
@@ -59,7 +60,7 @@ settingsApplyButton.addEventListener('click', () => {
   if (isValid) {
     setUtm(workingArea.document, utms);
     let output = getStringHtml(workingArea.document);
-    outputTextarea.node.textContent = output;
+    outputTextarea.node.textContent = postProcessHtmlString(output);
     outputTextarea.toggleTitleVisibility();
   }
 });

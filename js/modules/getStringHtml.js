@@ -1,4 +1,4 @@
-export function getStringHtml(htmlDocument) {
+export default function getStringHtml(htmlDocument) {
   let serializer = new XMLSerializer();
   let rawHtmlString = serializer.serializeToString(htmlDocument);
   while (rawHtmlString.indexOf('&amp;') !== -1 || rawHtmlString.indexOf('%26') !== -1) {

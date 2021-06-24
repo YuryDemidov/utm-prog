@@ -1,6 +1,6 @@
 import { regExps } from '../utils/regexps.js';
 
-export function setUtm(htmlDocument, {source = '', medium = '', campaign = '', content = '', term = ''}) {
+export default function setUtm(htmlDocument, {source = '', medium = '', campaign = '', content = '', term = ''}) {
   const links = htmlDocument.querySelectorAll('a');
   let utmString = `utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}`;
   utmString += (content !== '') ? `&utm_content=${content}` : '';
