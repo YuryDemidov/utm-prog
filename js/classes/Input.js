@@ -1,17 +1,21 @@
 export default class Input {
   constructor(node, initialValue) {
     this.node = node;
-    this.initialValue = initialValue;
+    this.initialValue = initialValue || localStorage.getItem(node.name) || '';
     this.wrap = this.node.closest('.param-input');
-    this.placeholder = this.wrap.querySelector('.param-input__placeholder');
   }
 
   init() {
     this.node.value = this.initialValue;
+    this.node.dataset.value = this.node.value;
 
     this.node.addEventListener('input', () => {
-      this.node.setAttribute('data-value', this.node.value);
+      this.node.dataset.value = this.node.value;
       this.node.classList.remove('param-input__input_error');
+    });
+
+    this.node.addEventListener('blur', () => {
+      localStorage.setItem(this.node.name, this.node.value);
     });
 
     return this;

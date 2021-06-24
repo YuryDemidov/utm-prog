@@ -14,7 +14,7 @@ const settingsInputs = Array.from(settings.querySelectorAll('.param-input__input
 const settingsErrorMessage = document.querySelector('.settings__error');
 
 settingsInputs.forEach((node, i) => {
-  settingsInputs[i] = new Input(node, '').init();
+  settingsInputs[i] = new Input(node).init();
 });
 
 let inputTextarea = new Textarea(inputAreaNode).init();

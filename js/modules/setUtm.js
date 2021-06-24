@@ -5,7 +5,6 @@ export function setUtm(htmlDocument, {source = '', medium = '', campaign = '', c
   let utmString = `utm-source=${source}&utm-medium=${medium}&utm-campaign=${campaign}`;
   utmString += (content !== '') ? `&utm-content=${content}` : '';
   utmString += (term !== '') ? `&utm-term=${term}` : '';
-  console.log(links);
 
   links.forEach((link) => {
     if (~link.href.search('tel:') || ~link.href.search('mailto:') || link.href === location.href || !link.href) {
