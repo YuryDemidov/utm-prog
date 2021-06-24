@@ -2,9 +2,9 @@ import { regExps } from '../utils/regexps.js';
 
 export function setUtm(htmlDocument, {source = '', medium = '', campaign = '', content = '', term = ''}) {
   const links = htmlDocument.querySelectorAll('a');
-  let utmString = `utm-source=${source}&utm-medium=${medium}&utm-campaign=${campaign}`;
-  utmString += (content !== '') ? `&utm-content=${content}` : '';
-  utmString += (term !== '') ? `&utm-term=${term}` : '';
+  let utmString = `utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}`;
+  utmString += (content !== '') ? `&utm_content=${content}` : '';
+  utmString += (term !== '') ? `&utm_term=${term}` : '';
 
   links.forEach((link) => {
     if (~link.href.search('tel:') || ~link.href.search('mailto:') || link.href === location.href || !link.href) {
